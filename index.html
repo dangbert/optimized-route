@@ -17,23 +17,14 @@ using the javascript google maps api key from https://console.developers.google.
             padding: 0;
         }
         
-/*
-        #routeInput {
-            float: left;
-            width: 15%;
-		    height: 100%;
-            ///////margin-left: 20px;
-            
-        }
-*/
         
         #map {
 /*            border-left: 1px solid black;*/
-/*            float: right;*/
-            height: 100%;
-/*            width: 100%;*/
-/*            postion: relative;*/
-            margin-left: 10px;
+            float: right;
+            height: 90%;
+            width: 75%;
+            postion: relative;
+            margin-left: 0px;
             margin-right: 10px;
             margin-bottom: 10px;
             
@@ -46,8 +37,23 @@ using the javascript google maps api key from https://console.developers.google.
         }
           
         #placeInfo{
-            font-size: 30px;
+            margin-left: 10px;
+            float: left;
+            width: 15%;
+/*            font-size: 30px;*/
             font-weight: bold;
+            
+        }
+        
+        
+        #placeInfo > t {
+            
+            font-size: small;
+        }
+        
+        #placeInfo >h3 {
+            padding-bottom: 0px;
+            margin-bottom: 0px;
             
         }
         
@@ -56,6 +62,7 @@ using the javascript google maps api key from https://console.developers.google.
             
             
         }
+        div
           
     </style>
       
@@ -66,21 +73,37 @@ using the javascript google maps api key from https://console.developers.google.
       <center><h1>Calculate a Route</h1></center>
       
       <div id="routeInput">
-            <div class="searchInput">
-                <input type = "text" name="searchbox" placeholder="Start Location" id="loc1">
-            </div>
-          
-            <div class="searchInput">
-                <input type = "text" name="searchbox" placeholder="Midpoints" id="loc2">
-            </div>
-          
-            <div class="searchInput">
-                <input type = "text" name="searchbox" placeholder="End Location" id="loc3">
-            </div>
       </div>
       
       
-      <div id="placeInfo"></div> <!--where info on the location is entered-->
+      <div id="placeInfo"> <!--where route info is displayed-->
+          <h3 style="color:green">Start:</h3>
+          <div class="searchInput"> 
+                <input type = "text" name="searchbox" placeholder="Start Location" id="loc1">
+          </div>
+          <t id="startInfo">
+              (not set)
+          </t><br>
+          
+          <h3 style="color:orange">Waypoints:</h3>
+          <div class="searchInput">
+                <input type = "text" name="searchbox" placeholder="Midpoints" id="loc2">
+          </div>
+          <t>
+                <ul id="wayPointsInfo">
+                </ul>
+          </t>
+
+          
+            <h3 style="color:red">End:</h3>
+            <div class="searchInput">
+                <input type = "text" name="searchbox" placeholder="End Location" id="loc3">
+            </div>
+            <t id="endInfo">
+                (not set)
+            </t>
+      </div>
+      
       
       <div id="map"></div> <!--where the map is rendered-->
       
