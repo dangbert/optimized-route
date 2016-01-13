@@ -1,5 +1,6 @@
 //things to add:
-//add a view address info button? and a delete button next to name and 
+//add an info button that displays the address when it's hovered over
+//or when the location name is hovered over
 //make waypoints draggable
 //check for dupplicate waypoints
 
@@ -28,7 +29,7 @@ function initMap() {
         navigator.geolocation.getCurrentPosition(function(position) {
             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             map.setCenter(initialLocation);
-            map.setZoom(12);
+            map.setZoom(11);
         });
     }
     
@@ -64,6 +65,7 @@ function initMap() {
         setMarker(0, start);
 //        console.log(JSON.stringify(start)); //print in JSON format
         document.getElementById("startInfo").innerHTML = "<br>" + start['name']; //shortened name
+        document.getElementById("startInfo").title = start['formatted_address'];
         
         //document.getElementById("startInfo").innerHTML = "<br>" + start['formatted_address'];
         calcRoute();
@@ -80,9 +82,12 @@ function initMap() {
             wayPoint.push(searchBox1.getPlaces()[0]); //add place to end of array
             var i = wayPoint.length-1;
             setMarker(i+2, wayPoint[i]);
-            document.getElementById("wayPointsInfo").innerHTML += "<li id=point" + i + ">" + wayPoint[i]['name'] + 
-                "<a href='javascript:void(0)' onclick='deletePoint(this)'> [X] </a></li>";
+            document.getElementById("wayPointsInfo").innerHTML += "<li id='point" + i + "'>" + "<t class='tooltip' title='" + wayPoint[i]['formatted_address'] + "'>" +
+            wayPoint[i]['name'] +
+                "</t><a href='javascript:void(0)' onclick='deletePoint(this)'><img src='images/delete.png' height='10' hspace='10'></a>\
+                <a href='javascript:void(0)'>"; // [X]
 //            console.log("wayPoint=" + wayPoint + '\n');
+            
             calcRoute();
         }
         else
@@ -98,6 +103,7 @@ function initMap() {
         document.getElementById("loc3").value = "";
         setMarker(1, end);
         document.getElementById("endInfo").innerHTML = "<br>" + end['name'];
+        document.getElementById("endInfo").title = end['formatted_address'];
         calcRoute();
     });
     
@@ -204,6 +210,7 @@ function deletePoint(elem) { //tinyurl.com/gmproj8
     console.log("wayPoint=" + wayPoint);
     calcRoute();
 }
+
 
 function printLocations() {
     console.log("Printing geometry.location of all locations");
