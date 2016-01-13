@@ -21,25 +21,32 @@ using the javascript google maps api key from https://console.developers.google.
         #map {
 /*            border-left: 1px solid black;*/
             float: right;
+/*
+            display: inline-block;
+            vertical-align: top;
+*/
+            
             height: 90%;
             width: 75%;
             postion: relative;
-            margin-left: 0px;
             margin-right: 10px;
+            padding-right: 15px;
             margin-bottom: 10px;
             
         }
         
         #searchbox{
             margin-top: 20px;
-            /*padding: 10px;*/
+           margin-right: 10px;
             font-size: 20px;
         }
           
         #placeInfo{
             margin-left: 10px;
-            float: left;
-            width: 15%;
+/*            float: left;*/
+            display: inline-block;
+            vertical-align: top;
+            width: 20%;
 /*            font-size: 30px;*/
             font-weight: bold;
             
@@ -49,6 +56,12 @@ using the javascript google maps api key from https://console.developers.google.
         #placeInfo > t {
             
             font-size: small;
+        }
+        
+        #placeInfo > a {
+/*            float:right;*/
+            display: inline-block;
+            vertical-align: bottom;
         }
         
         #placeInfo >h3 {
@@ -62,10 +75,42 @@ using the javascript google maps api key from https://console.developers.google.
             
             
         }
-        div
-          
-    </style>
-      
+        
+        
+/*http://www.webdesignerdepot.com/2012/11/how-to-create-a-simple-css3-tooltip/*/
+        .tooltip{
+            display: inline;
+            position: relative;
+        }
+        
+        .tooltip:hover:after{
+            background: #333;
+            background: rgba(0,0,0,.8);
+            border-radius: 5px;
+            bottom: 26px;
+            color: #fff;
+            content: attr(title); /*set content to the title of the element*/
+            left: 20%;
+            padding: 5px 15px;
+            position: absolute;
+            z-index: 98;
+            width: 220px;
+        }
+        
+    .tooltip:hover:before{
+            border: solid;
+            border-color: #333 transparent;
+            border-width: 6px 6px 0 6px;
+            bottom: 20px;
+            content: "";
+            left: 50%;
+            position: absolute;
+            z-index: 99;
+        }
+
+
+            </style>
+
   </head>
     
     
@@ -81,9 +126,9 @@ using the javascript google maps api key from https://console.developers.google.
           <div class="searchInput"> 
                 <input type = "text" name="searchbox" placeholder="Start Location" id="loc1">
           </div>
-          <t id="startInfo">
-              (not set)
-          </t><br>
+          <t id="startInfo" class="tooltip">
+
+          </t>
           
           <h3 style="color:orange">Waypoints:</h3>
           <div class="searchInput">
@@ -99,8 +144,8 @@ using the javascript google maps api key from https://console.developers.google.
             <div class="searchInput">
                 <input type = "text" name="searchbox" placeholder="End Location" id="loc3">
             </div>
-            <t id="endInfo">
-                (not set)
+            <t id="endInfo" class="tooltip">
+<!--                (not set)-->
             </t>
       </div>
       
