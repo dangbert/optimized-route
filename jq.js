@@ -8,7 +8,6 @@ $(document).ready(function() {
         
         if(!panel.hasClass('disabled')) {//if not disabled
             panel.toggleClass('hidden');
-            alert("toggled class 'hidden'")   
         }
         
 //        $("#directionsPanel").animate({

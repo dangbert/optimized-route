@@ -126,7 +126,6 @@ function calcRoute(routeStart) {
         var pan = document.getElementById('directionsPanel');
         if((' ' + pan.className + ' ').indexOf(' disabled ') == -1) {
             pan.className += " disabled";
-            alert("added class 'disabled'")
             document.getElementById("ham").src='images/grey-hamburger.png';
         }
         
@@ -169,7 +168,6 @@ function calcRoute(routeStart) {
     var pan = document.getElementById('directionsPanel');
         if((' ' + pan.className + ' ').indexOf(' disabled ') != -1) {
             pan.className = ""; //make panel visible
-            alert("cleared class");
             document.getElementById("ham").src='images/hamburger.png';
         }
     
