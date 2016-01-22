@@ -2,8 +2,17 @@
 $(document).ready(function() {
     console.log('jquery ready');
     
-    $('#directionsPanel').click(function(){
-        console.log("directionsPanel click");
-        $('this').toggleClass('off');
+    $('#ham').click(function(){
+        var panel = $("#directionsPanel");
+        console.log("ham button click");
+        
+        if(!panel.hasClass('disabled')) {//if not disabled
+            panel.toggleClass('hidden');
+            alert("toggled class 'hidden'")   
+        }
+        
+//        $("#directionsPanel").animate({
+//            left: '0px'
+//        }, 200);
     });
 });

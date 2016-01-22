@@ -123,6 +123,13 @@ function initMap() {
 
 function calcRoute(routeStart) {
     if(typeof start == 'undefined' || typeof end == 'undefined' || typeof wayPoint[0] == 'undefined') {
+        var pan = document.getElementById('directionsPanel');
+        if((' ' + pan.className + ' ').indexOf(' disabled ') == -1) {
+            pan.className += " disabled";
+            alert("added class 'disabled'")
+            document.getElementById("ham").src='images/grey-hamburger.png';
+        }
+        
         directionsDisplay.setMap(null); //in case the map was previously drawn
         for(var i=0; i<markers.length; i++)
             if(typeof markers[i] != 'undefined')
@@ -140,6 +147,8 @@ function calcRoute(routeStart) {
         }
     }
     
+    
+    
     console.log("***calculating route");
     
     var request = { //https://developers.google.com/maps/documentation/javascript/directions
@@ -156,6 +165,13 @@ function calcRoute(routeStart) {
             directionsDisplay.setDirections(result);
         }
     });
+    
+    var pan = document.getElementById('directionsPanel');
+        if((' ' + pan.className + ' ').indexOf(' disabled ') != -1) {
+            pan.className = ""; //make panel visible
+            alert("cleared class");
+            document.getElementById("ham").src='images/hamburger.png';
+        }
     
 }
 

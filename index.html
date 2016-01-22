@@ -45,15 +45,24 @@ using the javascript google maps api key from https://console.developers.google.
             
         }
         
-        #directionsPanel {
-/*            padding-left: 10px;*/
+        #ham {
             float: right;
-            width: 300px;
-/*            display: none;*/
         }
         
-        .off {
+        #directionsPanel {
+/*            border: 1px solid green;*/
+            padding-left: 0px;
+            margin-left: 10px;
+            float: right;
+            width: 300px;
+        }
+        
+        .hidden, .disabled {
             display: none;
+        }
+        
+        .on {
+            display: inline;
         }
         
         input {
@@ -151,13 +160,12 @@ using the javascript google maps api key from https://console.developers.google.
               <input type = "text" name="searchbox" placeholder="Set end location" id="loc3">
           </div>
           <t id="endInfo" class="tooltip"></t>
-          
-<!--          <div id="directionsPanel">-->
       </div>
       
       
-    
-    <div id="directionsPanel"></div> <!--Floats must be above non floats (the map) tinyurl.com/gmproj13-->
+    <img id="ham" src="images/grey-hamburger.png" height="20">
+    <div id="directionsPanel"></div><!--Floats must be above non floats (the map) tinyurl.com/gmproj13-->
+        
     <div id="map"></div> <!--where the map is rendered-->  
       
       
