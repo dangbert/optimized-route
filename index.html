@@ -20,35 +20,39 @@ using the javascript google maps api key from https://console.developers.google.
         
         #map {
 /*            border-left: 1px solid black;*/
-            float: right;
+/*            float: right;*/
 /*
             display: inline-block;
             vertical-align: top;
 */
-            
             height: 90%;
-            width: 75%;
+            /* http://stackoverflow.com/questions/1260122/expand-a-div-to-take-the-remaining-width */
+            width: auto;
+            overflow: hidden;
             postion: relative;
+/*            margin-right: 10px;*/
             margin-right: 10px;
             padding-right: 15px;
             margin-bottom: 10px;
             
         }
         
-        #searchbox{
-            margin-top: 20px;
-           margin-right: 10px;
-            font-size: 20px;
-        }
-          
         #placeInfo{
             margin-left: 10px;
-/*            float: left;*/
+            float: left;
             display: inline-block;
             vertical-align: top;
             width: 20%;
+            max-width: 300px;
+            min-width: 130px;
 /*            font-size: 30px;*/
             font-weight: bold;
+            
+        }
+        
+        input {
+            width: 95%; /*90% of #placeInfo's width */
+/*            padding: 10px;*/
             
         }
         
@@ -74,6 +78,12 @@ using the javascript google maps api key from https://console.developers.google.
 /*            padding-bottom: 20px;*/
             
             
+        }
+        
+        #searchbox{
+            margin-top: 20px;
+           margin-right: 10px;
+            font-size: 20px;
         }
         
         
@@ -108,57 +118,45 @@ using the javascript google maps api key from https://console.developers.google.
             z-index: 99;
         }
 
-
             </style>
-
   </head>
     
     
   <body>
-      <center><h1>Calculate a Route</h1></center>
-      
-      <div id="routeInput">
-      </div>
-      
+      <center><h1>Calculate a Route</h1></center>    
       
       <div id="placeInfo"> <!--where route info is displayed-->
           <h3 style="color:green">Start:</h3>
           <div class="searchInput"> 
-                <input type = "text" name="searchbox" placeholder="Set start location" size="40" id="loc1">
+                <input type = "text" name="searchbox" placeholder="Set start location" id="loc1">
           </div>
-          <t id="startInfo" class="tooltip">
-             
-          </t>
+          <t id="startInfo" class="tooltip"></t>
           
           <h3 style="color:orange">Waypoints:</h3>
           <div class="searchInput">
-                <input type = "text" name="searchbox" placeholder="Enter a waypoint" size="40" id="loc2">
+                <input type = "text" name="searchbox" placeholder="Enter a waypoint" id="loc2">
           </div>
           <t>
                 <ul id="wayPointsInfo">
                 </ul>
           </t>
 
-          
-            <h3 style="color:red">End:</h3>
-            <div class="searchInput">
-                <input type = "text" name="searchbox" placeholder="Set end Location" size="40" id="loc3">
-            </div>
-            <t id="endInfo" class="tooltip">
-<!--                (not set)-->
-            </t>
-          
-          <div id="directionsPanel">
+          <h3 style="color:red">End:</h3>
+          <div class="searchInput">
+              <input type = "text" name="searchbox" placeholder="Set end location" id="loc3">
           </div>
+          <t id="endInfo" class="tooltip"></t>
+          
+<!--          <div id="directionsPanel">-->
       </div>
       
       
-      <div id="map"></div> <!--where the map is rendered-->
+    <div id="map"></div> <!--where the map is rendered-->
+    <div id="directionsPanel">
       
       <script src="searchCode.js"></script>
       
       <!--added my api key here and "&libraries=places" which imports the places library-->
-      
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB04Iha4MnlTVAvjGXQ_9vlQoH-ZTijq4U&callback=initMap&libraries=places" async defer></script>
         
   </body>
