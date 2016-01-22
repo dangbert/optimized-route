@@ -37,9 +37,12 @@ function initMap() {
     
     
     //DIRECTIONS based on directions-panel.html from tinyurl.com/gmproj2
+    //automatically updated when a new route is set
+    directionsService = new google.maps.DirectionsService
     directionsDisplay = new google.maps.DirectionsRenderer();
     directionsDisplay.setMap(map);
-    directionsService = new google.maps.DirectionsService
+    directionsDisplay.setPanel(document.getElementById('directionsPanel'));
+    
     
     
     // Create the searchBoxes and link them to the UI element. from: tinyurl.com/gmproj1
@@ -60,7 +63,7 @@ function initMap() {
     searchBox0.addListener('places_changed', function () {
         document.getElementById("loc1").value = ""; //clear searchbox
         
-        if(exists(searchBox0.getPlaces()[0]))
+        if(exists(searchBox0.getPlaces()[0], true))
             return; //don't allow a duplicate place to be added
         
         start = searchBox0.getPlaces()[0]; //add the first place from the search
@@ -77,7 +80,7 @@ function initMap() {
     searchBox1.addListener('places_changed', function () {
         document.getElementById("loc2").value = "";
         
-        if(exists(searchBox1.getPlaces()[0]))
+        if(exists(searchBox1.getPlaces()[0], false))
             return; //don't allow a duplicate place to be added
         
         if(wayPoint.length < 8) { //8 waypoints max
@@ -98,7 +101,7 @@ function initMap() {
     
     //if searchBox2 is used
     searchBox2.addListener('places_changed', function () {
-        if(exists(searchBox2.getPlaces()[0]))
+        if(exists(searchBox2.getPlaces()[0], true))
             return; //don't allow a duplicate place to be added
         
         end = searchBox2.getPlaces()[0];
@@ -230,15 +233,17 @@ function printLocations() {
         console.log("wayPoint[" + i + "].geometry.location=" + wayPoint[i].geometry.location);
 }
 
-function exists(plc) { //plc
-    for(var i=0; i<wayPoint.length; i++) {
+function exists(plc, isEndpoint) { //place, boolean indicator if this place will be the start or stop
+    for(var i=0; i<wayPoint.length; i++) { //loop through waypoints
         console.log("checking i=" + i);
         if(wayPoint[i]['formatted_address'] == plc['formatted_address']) {
-            alert("Address:\n" + "'" + wayPoint[i]['formatted_address'] + "'\nwas previously entered!\n");
+            alert("Address:\n" + "'" + wayPoint[i]['formatted_address'] + "'\nis already a waypoint!\n");
             return true;
            }
     }
-    if((typeof start !='undefined' && start['formatted_address'] == plc['formatted_address']) || (typeof end !='undefined' && end['formatted_address'] == plc['formatted_address'])) {
+    
+    //check that the potential waypoint isn't the same as the start or end
+    if(!isEndpoint && ((typeof start !='undefined' && start['formatted_address'] == plc['formatted_address']) || (typeof end !='undefined' && end['formatted_address'] == plc['formatted_address']))) {
         alert("Address:\n" + "'" + plc['formatted_address'] + "'\nis your start or end point!\n");
         return true;
     }
