@@ -19,12 +19,7 @@ using the javascript google maps api key from https://console.developers.google.
         
         
         #map {
-/*            border-left: 1px solid black;*/
-/*            float: right;*/
-/*
-            display: inline-block;
-            vertical-align: top;
-*/
+            border: 1px solid black;
             height: 90%;
             /* http://stackoverflow.com/questions/1260122/expand-a-div-to-take-the-remaining-width */
             width: auto;
@@ -37,7 +32,7 @@ using the javascript google maps api key from https://console.developers.google.
             
         }
         
-        #placeInfo{
+        #placeInfo {
             margin-left: 10px;
             float: left;
             display: inline-block;
@@ -50,9 +45,19 @@ using the javascript google maps api key from https://console.developers.google.
             
         }
         
+        #directionsPanel {
+/*            padding-left: 10px;*/
+            float: right;
+            width: 300px;
+/*            display: none;*/
+        }
+        
+        .off {
+            display: none;
+        }
+        
         input {
             width: 95%; /*90% of #placeInfo's width */
-/*            padding: 10px;*/
             
         }
         
@@ -151,13 +156,19 @@ using the javascript google maps api key from https://console.developers.google.
       </div>
       
       
-    <div id="map"></div> <!--where the map is rendered-->
-    <div id="directionsPanel">
+    
+    <div id="directionsPanel"></div> <!--Floats must be above non floats (the map) tinyurl.com/gmproj13-->
+    <div id="map"></div> <!--where the map is rendered-->  
+      
       
       <script src="searchCode.js"></script>
       
       <!--added my api key here and "&libraries=places" which imports the places library-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB04Iha4MnlTVAvjGXQ_9vlQoH-ZTijq4U&callback=initMap&libraries=places" async defer></script>
+      
+<!-- Include JQuery -->
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script type="text/javascript" src="jq.js"></script>
         
   </body>
     

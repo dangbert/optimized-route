@@ -209,10 +209,8 @@ function deletePoint(elem) { //tinyurl.com/gmproj8
         document.getElementById("point" + t).id = "point" + (t-1);
     }
     
-
-    
-    console.log("***removed waypoint[" + i + "]");
-    console.log("wayPoint=" + wayPoint);
+//    console.log("***removed waypoint[" + i + "]");
+//    console.log("wayPoint=" + wayPoint);
     calcRoute();
 }
 
@@ -235,7 +233,6 @@ function printLocations() {
 
 function exists(plc, isEndpoint) { //place, boolean indicator if this place will be the start or stop
     for(var i=0; i<wayPoint.length; i++) { //loop through waypoints
-        console.log("checking i=" + i);
         if(wayPoint[i]['formatted_address'] == plc['formatted_address']) {
             alert("Address:\n" + "'" + wayPoint[i]['formatted_address'] + "'\nis already a waypoint!\n");
             return true;
