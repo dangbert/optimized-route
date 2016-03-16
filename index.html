@@ -17,37 +17,74 @@ using the javascript google maps api key from https://console.developers.google.
             padding: 0;
         }
         
-/*
-        #routeInput {
-            float: left;
-            width: 15%;
-		    height: 100%;
-            ///////margin-left: 20px;
-            
-        }
-*/
         
         #map {
-/*            border-left: 1px solid black;*/
-/*            float: right;*/
-            height: 100%;
-/*            width: 100%;*/
-/*            postion: relative;*/
-            margin-left: 10px;
+            border: 1px solid black;
+            height: 90%;
+            /* http://stackoverflow.com/questions/1260122/expand-a-div-to-take-the-remaining-width */
+            width: auto;
+            overflow: hidden;
+            postion: relative;
+/*            margin-right: 10px;*/
             margin-right: 10px;
+            padding-right: 15px;
             margin-bottom: 10px;
             
         }
         
-        #searchbox{
-            margin-top: 20px;
-            /*padding: 10px;*/
-            font-size: 20px;
-        }
-          
-        #placeInfo{
-            font-size: 30px;
+        #placeInfo {
+            margin-left: 10px;
+            float: left;
+            display: inline-block;
+            vertical-align: top;
+            width: 20%;
+            max-width: 300px;
+            min-width: 130px;
+/*            font-size: 30px;*/
             font-weight: bold;
+            
+        }
+        
+        #ham {
+            float: right;
+        }
+        
+        #directionsPanel {
+/*            border: 1px solid green;*/
+            padding-left: 0px;
+            margin-left: 10px;
+            float: right;
+            width: 300px;
+        }
+        
+        .hidden, .disabled {
+            display: none;
+        }
+        
+        .on {
+            display: inline;
+        }
+        
+        input {
+            width: 95%; /*90% of #placeInfo's width */
+            
+        }
+        
+        
+        #placeInfo > t {
+            
+            font-size: small;
+        }
+        
+        #placeInfo > a {
+/*            float:right;*/
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        
+        #placeInfo >h3 {
+            padding-bottom: 0px;
+            margin-bottom: 0px;
             
         }
         
@@ -56,39 +93,90 @@ using the javascript google maps api key from https://console.developers.google.
             
             
         }
-          
-    </style>
-      
+        
+        #searchbox{
+            margin-top: 20px;
+           margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        
+/*http://www.webdesignerdepot.com/2012/11/how-to-create-a-simple-css3-tooltip/*/
+        .tooltip{
+            display: inline;
+            position: relative;
+        }
+        
+        .tooltip:hover:after{
+            background: #333;
+            background: rgba(0,0,0,.8);
+            border-radius: 5px;
+            bottom: 26px;
+            color: #fff;
+            content: attr(title); /*set content to the title of the element*/
+            left: 20%;
+            padding: 5px 15px;
+            position: absolute;
+            z-index: 98;
+            width: 220px;
+        }
+        
+    .tooltip:hover:before{
+            border: solid;
+            border-color: #333 transparent;
+            border-width: 6px 6px 0 6px;
+            bottom: 20px;
+            content: "";
+            left: 50%;
+            position: absolute;
+            z-index: 99;
+        }
+
+            </style>
   </head>
     
     
   <body>
-      <center><h1>Calculate a Route</h1></center>
+      <center><h1>Calculate a Route</h1></center>    
       
-      <div id="routeInput">
-            <div class="searchInput">
-                <input type = "text" name="searchbox" placeholder="Start Location" id="loc1">
-            </div>
+      <div id="placeInfo"> <!--where route info is displayed-->
+          <h3 style="color:green">Start:</h3>
+          <div class="searchInput"> 
+                <input type = "text" name="searchbox" placeholder="Set start location" id="loc1">
+          </div>
+          <t id="startInfo" class="tooltip"></t>
           
-            <div class="searchInput">
-                <input type = "text" name="searchbox" placeholder="Midpoints" id="loc2">
-            </div>
-          
-            <div class="searchInput">
-                <input type = "text" name="searchbox" placeholder="End Location" id="loc3">
-            </div>
+          <h3 style="color:orange">Waypoints:</h3>
+          <div class="searchInput">
+                <input type = "text" name="searchbox" placeholder="Enter a waypoint" id="loc2">
+          </div>
+          <t>
+                <ul id="wayPointsInfo">
+                </ul>
+          </t>
+
+          <h3 style="color:red">End:</h3>
+          <div class="searchInput">
+              <input type = "text" name="searchbox" placeholder="Set end location" id="loc3">
+          </div>
+          <t id="endInfo" class="tooltip"></t>
       </div>
       
       
-      <div id="placeInfo"></div> <!--where info on the location is entered-->
+    <img id="ham" src="images/grey-hamburger.png" height="20">
+    <div id="directionsPanel"></div><!--Floats must be above non floats (the map) tinyurl.com/gmproj13-->
+        
+    <div id="map"></div> <!--where the map is rendered-->  
       
-      <div id="map"></div> <!--where the map is rendered-->
       
       <script src="searchCode.js"></script>
       
       <!--added my api key here and "&libraries=places" which imports the places library-->
-      
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB04Iha4MnlTVAvjGXQ_9vlQoH-ZTijq4U&callback=initMap&libraries=places" async defer></script>
+      
+<!-- Include JQuery -->
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script type="text/javascript" src="jq.js"></script>
         
   </body>
     
