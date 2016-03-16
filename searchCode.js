@@ -191,7 +191,7 @@ function setMarker(n, plc) { //sets markers[n] to the latlng object loc, creates
             animation: google.maps.Animation.DROP,
             icon: link,
             title: n.toString(),
-            draggable: true //make true later if the loc is retrieved from the marker
+            draggable: false //make true later if the loc is retrieved from the marker
         });
     }
     else {
