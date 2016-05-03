@@ -100,6 +100,14 @@ using the javascript google maps api key from https://console.developers.google.
             font-size: 20px;
         }
         
+        ol {
+            font: 13px/1.4 Helvetica, arial;
+        }
+        
+        ol > li {
+            margin-bottom: 10px;
+        }
+        
         
 /*http://www.webdesignerdepot.com/2012/11/how-to-create-a-simple-css3-tooltip/*/
         .tooltip{
@@ -148,7 +156,7 @@ using the javascript google maps api key from https://console.developers.google.
           
           <h3 style="color:orange">Waypoints:</h3>
           <div class="searchInput">
-                <input type = "text" name="searchbox" placeholder="Enter a waypoint" id="loc2">
+                <input type = "text" name="searchbox" placeholder="Enter up to 8 waypoints" id="loc2">
           </div>
           <t>
                 <ul id="wayPointsInfo">
@@ -160,6 +168,20 @@ using the javascript google maps api key from https://console.developers.google.
               <input type = "text" name="searchbox" placeholder="Set end location" id="loc3">
           </div>
           <t id="endInfo" class="tooltip"></t>
+          
+          <br>
+          <br>
+          <br>
+          <br>
+          <h3 style="color: blue;">Instructions:</h3>
+          <ol>
+              <li>Enter the start location in the "Start" search box</li>
+              <li>Enter up to 8 waypoint locations in the "Waypoints" box in any order</li>
+              <li>Enter the end location in the "End" box</li>
+              <li>Mouseover a location on the left panel to view its address</li>
+              <li>Delete waypoints with the red x; change start/end by entering a new location</li>
+          
+          </ol>
       </div>
       
       
