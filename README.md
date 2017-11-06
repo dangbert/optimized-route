@@ -1,7 +1,7 @@
 # optimized-route
 A website that uses the Google Maps API to create an optimized route between up to 8 waypoints.
 
-####How to use:####
+#### How to use: ####
 1.  Go to http://engbert.me/optimized-route/
 2.  Enter the start location in the "Set start location" search box
 3.  Enter up to 8 waypoint locations in the "Enter a waypoint" box in any order
