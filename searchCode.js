@@ -15,6 +15,11 @@ var start; //start place
 var end; //end place
 var wayPoint = []; //array for holding places objects of each travel point. [0] = start, [1] = end, others = waypoints
 
+// https://developers.google.com/maps/documentation/javascript/directions#waypoint-limits
+var MAX_WAYPOINTS = 25; // max number of waypoints allowed by API (25 max as of Jan 27, 2020)
+
+document.getElementById("loc2").placeholder = "Enter up to " + MAX_WAYPOINTS + " waypoints";
+
 //called after the google maps api is loaded
 function initMap() {
     //create map object
@@ -83,7 +88,7 @@ function initMap() {
         if(exists(searchBox1.getPlaces()[0], false))
             return; //don't allow a duplicate place to be added
         
-        if(wayPoint.length < 8) { //8 waypoints max
+        if(wayPoint.length < MAX_WAYPOINTS) { // check against max number of waypoints
             wayPoint.push(searchBox1.getPlaces()[0]); //add place to end of array
             var i = wayPoint.length-1;
             setMarker(i+2, wayPoint[i]);
@@ -96,7 +101,7 @@ function initMap() {
             calcRoute();
         }
         else
-            alert("Only 8 waypoints are allowed. Please remove a waypoint before adding a new one.");
+            alert("Only " + MAX_WAYPOINTS + "  waypoints are allowed. Please remove a waypoint before adding a new one.");
     });
     
     //if searchBox2 is used
@@ -148,7 +153,7 @@ function calcRoute(routeStart) {
     
     
     
-    console.log("***calculating route");
+    // console.log("***calculating route");
     
     var request = { //https://developers.google.com/maps/documentation/javascript/directions
         origin: start.geometry.location, //latlng object
@@ -204,7 +209,7 @@ function clearMarkers() {
     for(var i=0; i<markers.length; i++)
         if(typeof markers[i] != 'undefined')
             markers[i].setMap(null); //turn markers off but don't delete in case directionsDisplay is turned off
-    console.log("***markers cleared");
+    // console.log("***markers cleared");
 }
 
 
