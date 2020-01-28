@@ -17,7 +17,6 @@ using the javascript google maps api key from https://console.developers.google.
             padding: 0;
         }
         
-        
         #map {
             border: 1px solid black;
             height: 90%;
@@ -67,12 +66,9 @@ using the javascript google maps api key from https://console.developers.google.
         
         input {
             width: 95%; /*90% of #placeInfo's width */
-            
         }
         
-        
         #placeInfo > t {
-            
             font-size: small;
         }
         
@@ -85,13 +81,10 @@ using the javascript google maps api key from https://console.developers.google.
         #placeInfo >h3 {
             padding-bottom: 0px;
             margin-bottom: 0px;
-            
         }
         
         .searchInput {
 /*            padding-bottom: 20px;*/
-            
-            
         }
         
         #searchbox{
@@ -140,12 +133,11 @@ using the javascript google maps api key from https://console.developers.google.
             z-index: 99;
         }
 
-            </style>
+    </style>
   </head>
     
-    
   <body>
-      <center><h1>Calculate the Optimal Route Between Stops</h1></center>    
+      <center><h1>Calculate Optimal Route Between Stops</h1></center>    
       
       <div id="placeInfo"> <!--where route info is displayed-->
           <h3 style="color:green">Start:</h3>
@@ -169,10 +161,7 @@ using the javascript google maps api key from https://console.developers.google.
           </div>
           <t id="endInfo" class="tooltip"></t>
           
-          <br>
-          <br>
-          <br>
-          <br>
+          <br><br><br><br>
           <h3 style="color: blue;">Instructions:</h3>
           <ol>
               <li>Enter the start location in the "Start" search box</li>
@@ -190,15 +179,10 @@ using the javascript google maps api key from https://console.developers.google.
         
     <div id="map"></div> <!--where the map is rendered-->  
       
-      
-      <script src="searchCode.js"></script>
-      
-      <!--added my api key here and "&libraries=places" which imports the places library-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <!-- Include JQuery -->
+    <script src="searchCode.js"></script>
+    <!--added my api key here and "&libraries=places" which imports the places library-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB04Iha4MnlTVAvjGXQ_9vlQoH-ZTijq4U&callback=initMap&libraries=places" async defer></script>
-      
-<!-- Include JQuery -->
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script type="text/javascript" src="jq.js"></script>
         
   </body>
     
