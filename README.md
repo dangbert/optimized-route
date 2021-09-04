@@ -1,7 +1,7 @@
 # optimized-route
 A website that uses the Google Maps API to create an optimized route between up to 25 waypoints (the traveling salesman problem). Useful for planning a roadtrip or a set of errands.
 
-[Click here](http://dangbert.github.io/optimized-route/?waypoint=ChIJVXealLU_xkcRja_At0z9AGY%2CChIJgTwKgJcpQg0RaSKMYcHeNsQ%2CChIJdxs61MA5jkcRmmVXBP5fVcs%2CChIJ-88eGYp1nkcRpm2C9-efi7g%2CChIJ7feaKmwD7UcRzffjOYpAeqI&start=ChIJtTeDfh9w5kcRJEWRKN1Yy6I&end=ChIJ8UNwBh-9oRQR3Y1mdkU1Nic) to see an example route for a roadtrip across Europe.
+[Click here](https://dangbert.github.io/optimized-route/?waypoint=ChIJVXealLU_xkcRja_At0z9AGY%2CChIJgTwKgJcpQg0RaSKMYcHeNsQ%2CChIJdxs61MA5jkcRmmVXBP5fVcs%2CChIJ-88eGYp1nkcRpm2C9-efi7g%2CChIJ7feaKmwD7UcRzffjOYpAeqI&start=ChIJtTeDfh9w5kcRJEWRKN1Yy6I&end=ChIJ8UNwBh-9oRQR3Y1mdkU1Nic) to see an example route for a roadtrip across Europe.
 
 #### How to use: ####
 1.  Go to http://dangbert.github.io/optimized-route/
