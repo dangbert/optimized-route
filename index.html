@@ -140,36 +140,38 @@ using the javascript google maps api key from https://console.developers.google.
       <center><h1>Calculate Optimal Route Between Stops</h1></center>    
       
       <div id="placeInfo"> <!--where route info is displayed-->
+          <h3 style="color:black;" class="" id="loading-info">Loading...</h3>
+
           <h3 style="color:green">Start:</h3>
           <div class="searchInput"> 
-                <input type = "text" name="searchbox" placeholder="Set start location" id="loc1">
+                <input type = "text" name="searchbox" placeholder="Set start location" id="loc1" disabled>
           </div>
           <t id="startInfo" class="tooltip"></t>
           
           <h3 style="color:orange">Waypoints:</h3>
           <div class="searchInput">
-                <input type="text" name="searchbox" placeholder="Enter some waypoints" id="loc2">
+                <input type="text" name="searchbox" placeholder="Enter some waypoints" id="loc2" disabled>
           </div>
           <t>
-                <ul id="wayPointsInfo">
+                <ul id="waypointsInfo">
                 </ul>
           </t>
 
           <h3 style="color:red">End:</h3>
           <div class="searchInput">
-              <input type = "text" name="searchbox" placeholder="Set end location" id="loc3">
+              <input type = "text" name="searchbox" placeholder="Set end location" id="loc3" disabled>
           </div>
           <t id="endInfo" class="tooltip"></t>
           
           <br><br><br><br>
           <h3 style="color: blue;">Instructions:</h3>
           <ol>
-              <li>Enter the start location in the "Start" search box</li>
-              <li>Enter desired stops in the "Waypoints" box in any order (up to 25)</li>
-              <li>Enter the desired end location in the "End" box</li>
-              <li>Mouseover a location on the left panel to view its address</li>
-              <li>Delete waypoints with the red x; change start/end by entering a new location</li>
-          
+              <li>Enter the start location in the "Start" search box.</li>
+              <li>Enter desired stops in the "Waypoints" box in any order (up to 25).</li>
+              <li>Enter the desired end location in the "End" box.</li>
+              <li>Mouseover a location on the left panel to view its address.</li>
+              <li>Delete waypoints with the red x; change start/end by entering a new location.</li>
+              <li><b>NEW:</b> bookmark the page at any point to save your route for revisiting later.</li>
           </ol>
       </div>
       
@@ -179,7 +181,7 @@ using the javascript google maps api key from https://console.developers.google.
         
     <div id="map"></div> <!--where the map is rendered-->  
       
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <!-- Include JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <!-- Include JQuery -->
     <script src="searchCode.js"></script>
     <!--added my api key here and "&libraries=places" which imports the places library-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB04Iha4MnlTVAvjGXQ_9vlQoH-ZTijq4U&callback=initMap&libraries=places" async defer></script>
